@@ -11,9 +11,21 @@ export class AppComponent {
   randomText = lorem.sentence();
   enteredText = "";
   
-  onInput(value: any) {
-    console.log(value);
+  onInput(event: any) {
+    let value = event?.target.value
     this.enteredText = value;
+    console.log(value);
   
   }
+
+  compare(randomletter: string, enteredLetter: string) {
+    if (!enteredLetter) {
+      return 'pending';
+    }
+
+    return randomletter === enteredLetter ? 'correct' : 'incorrect';
+
+
+  }
+
 }
